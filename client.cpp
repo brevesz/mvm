@@ -1,10 +1,11 @@
 #include <iostream>
+#include <fstream>
 #include "client.h"
 using namespace std;
 
-void Client::new_service(Service& service) {
+void Client::new_service(const Service& service) {
     siz++;
-    Service new_services = new Service[siz];
+    Service *new_services = new Service[siz];
     for (size_t i = 0; i < siz; ++i) {
         new_services[i] = services[i];
     }
@@ -14,7 +15,8 @@ void Client::new_service(Service& service) {
 }
 
 void Client::save() {
-    ofstream o_f(name);
+    ofstream o_f;
+    o_f.open(name);
     if (o_f.is_open()){
         o_f << "Ugyfel neve: " << name << "\n" << "Szamlazasi cime: " << billing_address << "\n" << "Igenybe vett szolgaltatasok: " << siz << endl;
         o_f.close();

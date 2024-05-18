@@ -10,11 +10,12 @@ class Client {
     Service *services;
     size_t siz;
 public:
+    Client() {}
     Client(string n, string b_a) : name(n), billing_address(b_a) {} // a maradék?
     string get_name(){return name;}
     string get_billing_address(){return billing_address;}
     size_t service_count() {return siz;}
-    void new_service(Service& service);
+    void new_service(const Service& service);
 
     void save();
     void load(); // static?

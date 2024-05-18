@@ -25,10 +25,10 @@ void main_menu() {
                 kilepes = true;
                 break;
             case 1:
-                write_clientlist(//clientlist)
+                //write_clientlist();
                 break;
             case 2:
-                ClientList::add(interactive_client());
+                //clientlist.add(interactive_client());
                 break;
 
         }
@@ -57,10 +57,9 @@ void write_service(Service& service) {
         cout << "[0] Vissza [1] Uj szamla [2] Egyenleg lekerdezes [3] Fogyasztas bejelentese [4] Befizetes\n";
         cout << "====\n";
         cout << service.get_number() << endl;
-        cout << service.get_signed_on() << endl;
         cout << "A szolgaltatashoz tartozo szamlak:\n";
         for (size_t i = 0; i < service.invoice_count(); ++i) {
-            if (service[i].payed()) {cout << "-" << service[i].getnumber() << ", fizetve";}
+            if (service[i].get_paid()) {cout << "-" << service[i].get_number() << ", fizetve";}
             else {
                 cout << "-" << service[i].get_number() << ", nincs fizetve";
             }
@@ -72,7 +71,7 @@ void write_service(Service& service) {
                 break;
             case 1:
                 service.invoice();
-                cout << "Uj szamla hozzaadva."
+                cout << "Uj szamla hozzaadva.";
                 break;
 
             case 2:
@@ -96,20 +95,20 @@ Service interactive_service(Client& client){
     string new_service_name;
     std::getline(cin,new_service_name);
     int random = rand() % 900 + 100; // csak egyszer kéne használni
-    Service new_service(random,0,new_service_name, IDK);
+    Service new_service(random,0,new_service_name, &client);
     return new_service;
 }
 
 void write_client(Client& client) {
     cout << "[0] Vissza\n";
     cout << "Valasszon a megfelelelo szambillentyu lenyomasaval!\n";
-    cout << "Uj szolgaltatasi szerzodes: irja be, hogy n! Torles: irja be, hogy d!\n"
+    cout << "Uj szolgaltatasi szerzodes: irja be, hogy n! Torles: irja be, hogy d!\n";
     cout << "====\n";
-    cout << "Ugyfel neve: " << client.getname() << endl;
-    cout << "Szamlazasi cime: " << client.get_billing_address(); << endl;
+    cout << "Ugyfel neve: " << client.get_name() << endl;
+    cout << "Szamlazasi cime: " << client.get_billing_address() << endl;
     cout << "Szolgaltatasok:\n";
     for (size_t i = 0; i < client.service_count(); ++i) {
-        cout << "[" << i << "] " << client[i] << endl;
+        cout << "[" << i << "] " << client[i].get_number() << " " << client[i].get_billing_address() << endl;
     }
     char input;
     cin >> input;
@@ -119,7 +118,7 @@ void write_client(Client& client) {
     case '0':
         return;
     case 'n':
-        client.new_service(interactive_service());
+        client.new_service(interactive_service(client));
         break;
     case 'd':
         //delete függvény
@@ -129,11 +128,11 @@ void write_client(Client& client) {
     write_service(client[int(input)]);
 }
 void write_clientlist(ClientList& clientlist) {
-    cout << "Valasszon a megfelelo szambillentyu lenyomasaval!\n"
+    cout << "Valasszon a megfelelo szambillentyu lenyomasaval!\n";
     cout << "====\n";
     cout << "[0] Vissza\n";
     for (size_t i = 1; i < clientlist.client_count()+1; ++i) {
-        cout << "[" << i << "] " << clientlist[i].name << endl;
+        cout << "[" << i << "] " << clientlist[i].get_name() << endl;
     }
     int input;
     cin >> input;

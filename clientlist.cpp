@@ -5,7 +5,7 @@
 using namespace std;
 void ClientList::add(Client& client) {
     siz++;
-    Client new_clients = new Client[siz];
+    Client *new_clients = new Client[siz];
     for (size_t i = 0; i < siz; ++i) {
         new_clients[i] = clients[i];
     }

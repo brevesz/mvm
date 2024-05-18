@@ -9,7 +9,7 @@ class ClientList {
     Client *clients;
     size_t siz;
 public:
-    ClientList();
+    ClientList() : clients(nullptr), siz(0) {}
     void add(Client& client);
     void save();
     static ClientList load();
