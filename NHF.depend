@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1714844461 source:c:\users\boti\documents\prog2\nhf\nhf\memtrace.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
+	"memtrace.h"
+
+1714844461 c:\users\boti\documents\prog2\nhf\nhf\memtrace.h
+	<new>
+	<cstdio>
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+	<list>
+	<map>
+	<algorithm>
+	<functional>
+	<memory>
+	<iomanip>
+	<locale>
+	<typeinfo>
+	<ostream>
+	<stdexcept>
+	<ctime>
+	<iterator>
+	<regex>
+
+1714659924 source:c:\users\boti\documents\prog2\nhf\nhf\invoice.cpp
+	<iostream>
+	"invoice.h"
+
+1714942086 c:\users\boti\documents\prog2\nhf\nhf\invoice.h
+
+1714659925 source:c:\users\boti\documents\prog2\nhf\nhf\service.cpp
+	<iostream>
+	"service.h"
+
+1714942814 c:\users\boti\documents\prog2\nhf\nhf\service.h
+	"invoice.h"
+
+1714942273 source:c:\users\boti\documents\prog2\nhf\nhf\clientlist.cpp
+	<iostream>
+	"clientlist.h"
+
+1714942344 c:\users\boti\documents\prog2\nhf\nhf\clientlist.h
+	<iostream>
+	<fstream>
+	"client.h"
+
+1714942358 c:\users\boti\documents\prog2\nhf\nhf\client.h
+	"service.h"
+
