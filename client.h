@@ -5,20 +5,21 @@
 using namespace std;
 
 class Client {
+    int number {-1};
     string name;
     string billing_address;
-    Service *services;
-    size_t siz;
+    Service *services {nullptr};
+    size_t siz {0};
 public:
     Client() {}
-    Client(string n, string b_a) : name(n), billing_address(b_a) {} // a maradék?
+    Client(int num, string n, string b_a) : number(num), name(n), billing_address(b_a) {} // a maradék?
+    ~Client();
     string get_name(){return name;}
     string get_billing_address(){return billing_address;}
     size_t service_count() {return siz;}
-    void new_service(const Service& service);
+    void add_service(const Service& service);
 
-    void save();
-    void load(); // static?
+    Client &operator=(const Client &other);
 
     Service &operator[](size_t idx) {
         if (idx >= siz) throw "Out of range";

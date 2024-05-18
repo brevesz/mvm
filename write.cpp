@@ -44,7 +44,8 @@ Client interactive_client() {
     string b_address;
     cout << "Ugyfel neve: "; std::getline(cin, name);
     cout << "\nSzamlazasi cime: "; std::getline(cin,b_address);
-    Client client(name,b_address);
+    int random = rand() % 900 + 100;
+    Client client(random, name, b_address);
     return client;
 
 }
@@ -118,7 +119,7 @@ void write_client(Client& client) {
     case '0':
         return;
     case 'n':
-        client.new_service(interactive_service(client));
+        client.add_service(interactive_service(client));
         break;
     case 'd':
         //delete függvény

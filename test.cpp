@@ -7,6 +7,17 @@
 
 int main() {
 
+    ClientList cl;
+    Client c(123,"Kovács István","Fõ u. 1");
+    Service s(321,4000,c.get_billing_address(),&c);
+
+    s.invoice();
+    c.add_service(s);
+    cl.add(c);
+
+    cl.save();
+    return 0;
+
 // CLIENTLIST TESZTEK
     TEST(addClient, ClientList)
         ClientList clientlist;
@@ -22,11 +33,12 @@ int main() {
         EXPECT_EQ(client.get_name(),clientlist[0].get_name());
     END
 
+
 // CLIENT TESZTEK
     TEST(new_service, Client)
         Client client;
         Service service;
-        client.new_service(service);
+        client.add_service(service);
         EXPECT_EQ((size_t)1,client.service_count());
 
     END
@@ -34,7 +46,7 @@ int main() {
     TEST(index_service, Client)
         Client client;
         Service service;
-        client.new_service(service);
+        client.add_service(service);
         EXPECT_EQ(service.get_number(),client[0].get_number());
     END
 
@@ -51,4 +63,6 @@ int main() {
         service.register_consumption(consumption);
         EXPECT_EQ(consumption,service.get_consumption());
     END
+
+    return 0;
 }

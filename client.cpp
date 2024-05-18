@@ -3,29 +3,37 @@
 #include "client.h"
 using namespace std;
 
-void Client::new_service(const Service& service) {
+Client::~Client() {
+    if (services) {
+        delete[] services;
+    }
+}
+
+Client &Client::operator=(const Client &other) {
+    number = other.number;
+    name = other.name;
+    billing_address = other.billing_address;
+    siz = other.siz;
+    services = new Service[siz];
+    for (size_t i=0; i<siz; ++i) {
+        services[i] = other.services[i];
+    }
+
+    return *this;
+}
+
+void Client::add_service(const Service& service) {
     siz++;
     Service *new_services = new Service[siz];
-    for (size_t i = 0; i < siz; ++i) {
+    for (size_t i = 0; i < siz - 1; ++i) {
         new_services[i] = services[i];
     }
-    new_services[siz] = service;
+    new_services[siz-1] = service;
     delete[] services;
     services = new_services;
 }
 
-void Client::save() {
-    ofstream o_f;
-    o_f.open(name);
-    if (o_f.is_open()){
-        o_f << "Ugyfel neve: " << name << "\n" << "Szamlazasi cime: " << billing_address << "\n" << "Igenybe vett szolgaltatasok: " << siz << endl;
-        o_f.close();
-    }
-    else{
-        cout << "Can't open file.";
-    }
-}
-
+/*
 void Client::load() {
     ifstream i_f(name);
     // kell a fileba az a szoveg, vagy csak az adatok és akkor meg lehet normálisan
@@ -33,3 +41,4 @@ void Client::load() {
     // amikor elindítjuk a programot
 
 }
+*/
