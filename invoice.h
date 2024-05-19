@@ -11,9 +11,9 @@ class Invoice {
 public:
     Invoice () {}
     Invoice(int n, int c, Service *s, bool p) : number(n), consumption(c), service_agreement(s), paid(p) {}
-    int get_number() {return number;}
-    int get_consumption() {return consumption;}
-    bool get_paid() {return paid;}
+    int get_number() const {return number;}
+    int get_consumption() const {return consumption;}
+    bool get_paid() const {return paid;}
     void set_paid(bool tf) {paid = tf;}
     void write_invoice();
 };

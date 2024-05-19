@@ -8,17 +8,20 @@
 class ClientList {
     Client *clients;
     size_t siz;
+    Client* find_client(int cl_number);
+    Service* find_service(int service_number);
 public:
     ClientList() : clients(nullptr), siz(0) {}
     void add(Client& client);
     void save();
-    static ClientList load();
+    void load();
 
-    size_t client_count() {return siz;}
+    size_t client_count() const {return siz;}
     Client& operator[](size_t idx) {
         if (idx >= siz) throw "Out of range";
         return clients[idx];
     }
+
 };
 
 #endif // CLIENTLIST_H

@@ -1,6 +1,6 @@
-#include <iostream>
-
 #include "invoice.h"
+#include "memtrace.h"
+#include <iostream>
 
 void Invoice::write_invoice() {
     std::cout << "Szamla adatai:\n" << "Szolgaltasi szerzodes azonositoja: " << number

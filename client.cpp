@@ -1,6 +1,7 @@
+#include "client.h"
+#include "memtrace.h"
 #include <iostream>
 #include <fstream>
-#include "client.h"
 using namespace std;
 
 Client::~Client() {

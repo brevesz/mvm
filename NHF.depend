@@ -84,7 +84,7 @@
 	<iterator>
 	<regex>
 
-1716055134 source:c:\users\boti\documents\prog2\nhf\mvm\test.cpp
+1716135583 source:c:\users\boti\documents\prog2\nhf\mvm\test.cpp
 	<iostream>
 	"clientlist.h"
 	"client.h"
@@ -92,18 +92,19 @@
 	"invoice.h"
 	"gtest_lite.h"
 
-1716044146 c:\users\boti\documents\prog2\nhf\mvm\clientlist.h
+1716121093 c:\users\boti\documents\prog2\nhf\mvm\clientlist.h
 	<iostream>
 	<fstream>
 	"client.h"
 
-1716058129 c:\users\boti\documents\prog2\nhf\mvm\client.h
+1716132570 c:\users\boti\documents\prog2\nhf\mvm\client.h
 	"service.h"
 
-1716058160 c:\users\boti\documents\prog2\nhf\mvm\service.h
+1716135702 c:\users\boti\documents\prog2\nhf\mvm\service.h
 	"invoice.h"
+	<string>
 
-1716052782 c:\users\boti\documents\prog2\nhf\mvm\invoice.h
+1716121093 c:\users\boti\documents\prog2\nhf\mvm\invoice.h
 
 1714844461 c:\users\boti\documents\prog2\nhf\mvm\gtest_lite.h
 	<iostream>
@@ -118,26 +119,43 @@
 	<regex>
 	"memtrace.h"
 
-1716042396 source:c:\users\boti\documents\prog2\nhf\mvm\invoice.cpp
-	<iostream>
+1716135682 source:c:\users\boti\documents\prog2\nhf\mvm\invoice.cpp
 	"invoice.h"
-
-1716058447 source:c:\users\boti\documents\prog2\nhf\mvm\client.cpp
+	"memtrace.h"
 	<iostream>
-	<fstream>
+
+1716135649 source:c:\users\boti\documents\prog2\nhf\mvm\client.cpp
 	"client.h"
-
-1716058484 source:c:\users\boti\documents\prog2\nhf\mvm\clientlist.cpp
+	"memtrace.h"
 	<iostream>
-	"clientlist.h"
 	<fstream>
 
-1716058466 source:c:\users\boti\documents\prog2\nhf\mvm\service.cpp
+1716135628 source:c:\users\boti\documents\prog2\nhf\mvm\clientlist.cpp
+	"clientlist.h"
+	"memtrace.h"
 	<iostream>
+	<fstream>
+	<string>
+
+1716135664 source:c:\users\boti\documents\prog2\nhf\mvm\service.cpp
 	"service.h"
 	"client.h"
+	"memtrace.h"
+	<iostream>
 
-1716053932 source:c:\users\boti\documents\prog2\nhf\mvm\write.cpp
+1716132359 source:c:\users\boti\documents\prog2\nhf\mvm\write.cpp
+	<iostream>
+	<cstdlib>
+	"clientlist.h"
+	"client.h"
+	"service.h"
+	"invoice.h"
+	<string.h>
+
+1716131544 source:c:\users\boti\documents\prog2\nhf\mvm\main.cpp
+	<iostream>
+
+1716122976 c:\users\boti\documents\prog2\nhf\mvm\write.cpp
 	<iostream>
 	<cstdlib>
 	"clientlist.h"

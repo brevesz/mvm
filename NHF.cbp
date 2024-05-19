@@ -39,6 +39,7 @@
 		<Unit filename="gtest_lite.h" />
 		<Unit filename="invoice.cpp" />
 		<Unit filename="invoice.h" />
+		<Unit filename="main.cpp" />
 		<Unit filename="memtrace.cpp" />
 		<Unit filename="memtrace.h" />
 		<Unit filename="service.cpp" />

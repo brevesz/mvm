@@ -1,7 +1,7 @@
-#include <iostream>
-
 #include "service.h"
 #include "client.h"
+#include "memtrace.h"
+#include <iostream>
 
 Service::~Service() {
     if (invoices) {
@@ -33,16 +33,20 @@ void Service::register_consumption(int price) {
     consumption += price;
 }
 
-void Service::invoice() {
-    int random = rand() % 900 + 100; // csak egyszer kéne használni
+void Service::generate_invoice() {
+    int random = rand() % 900 + 100;
     Invoice new_invoice(random,consumption,this,false); // még nincs kifizetve
+    consumption = 0;
+    add_invoice(new_invoice);
+}
 
+void Service::add_invoice(const Invoice& invoice) {
     siz++;
     Invoice *new_invoices = new Invoice[siz];
     for (size_t i = 0; i < siz - 1; ++i) {
         new_invoices[i] = invoices[i];
     }
-    new_invoices[siz-1] = new_invoice;
+    new_invoices[siz-1] = invoice;
     delete[] invoices;
     invoices = new_invoices;
 }

@@ -14,9 +14,10 @@ public:
     Client() {}
     Client(int num, string n, string b_a) : number(num), name(n), billing_address(b_a) {} // a maradék?
     ~Client();
-    string get_name(){return name;}
-    string get_billing_address(){return billing_address;}
-    size_t service_count() {return siz;}
+    int get_number() const {return number;}
+    string get_name() const {return name;}
+    string get_billing_address() const {return billing_address;}
+    size_t service_count() const {return siz;}
     void add_service(const Service& service);
 
     Client &operator=(const Client &other);
